@@ -41,8 +41,10 @@ public class SensorMonitoring implements MqttCallback {
     }
 
     @Override
-    public void messageArrived(String s, MqttMessage mqttMessage) throws Exception {
-        System.out.println("Message arrived : " + new String(mqttMessage.getPayload(), "UTF-8"));
+    public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
+
+        String message = new String(mqttMessage.getPayload(), "UTF-8");
+        System.out.println(topic + " : " + message);
     }
 
     @Override
